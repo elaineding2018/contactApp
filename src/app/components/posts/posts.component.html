@@ -1,0 +1,29 @@
+<h2>Sample  User Contact Information Data from  </h2>
+<h4>  http://jsonplaceholder.typicode.com/users</h4>
+<p></p>
+<br>
+<dl>
+  <dt>Test Instruction</dt>
+  <dd>- For each record, when edit button is clicked, contact information will show in above Add/Edit form. When remove button is clicked, an alert box will pop to confirm  </dd>
+  <dd>- Since typicode.com is test server to mimic process, it won't actually save the new data in web server. the newly added data will be saved in memory. If manually refreshing the page, user data will be loaded from web server and new record will not show. This is just for demo purpose  </dd>
+</dl>
+<app-post-form [currentPost]="currentPost" [isEdit]="isEdit" (newPost)="onNewPost($event)" (updatedPost)="onUpdatedPost($event)"></app-post-form>
+
+<br>
+
+<h3>Detail Contacts Information List: </h3>
+
+<div class="card" *ngFor="let post of posts">
+  <div class="card-body">
+    <h3>{{ post.name }}</h3>
+    <p>Email:   {{ post.email }}</p> 
+    <p>Phone:   {{ post.phone }}</p>
+    <p>Status: {{ post.status }}</p>
+  
+    <button (click)="editPost(post)" class="btn btn-light"><i class="fa fa-pencil"></i></button>
+    <button (click)="removePost(post)" class="btn btn-danger"><i class="fa fa-remove"></i></button>
+
+ 
+  </div>
+  <br>
+</div>

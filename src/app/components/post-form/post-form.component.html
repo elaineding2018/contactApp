@@ -1,0 +1,35 @@
+<h3>Add User Form:</h3>
+
+<div class="card card-body mb-3">
+  <form>
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control"  [(ngModel)]="currentPost.firstName" name="firstname" #firstname>
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control"  [(ngModel)]="currentPost.lastName" name="lastname" #lastname>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control"  [(ngModel)]="currentPost.email" name="email" #email>
+      <input type="hidden" [(ngModel)]="currentPost.id" name="id">
+    </div>
+    
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="text" class="form-control"  [(ngModel)]="currentPost.phone" name="phone" #phone>
+    </div>
+    <div class="form-group">
+      <label>Active:    
+        <input type="checkbox" [(ngModel)]="currentPost.isActive"
+               ng-true-value="'YES'" ng-false-value="'NO'" name="isactive" >
+      </label>
+    </div>
+
+    <button *ngIf="!isEdit" (click)="addNewPost()" class="btn btn-dark btn-block">Add New User</button>
+
+    <button *ngIf="isEdit" (click)="updateCurrentPost()" class="btn btn-warning btn-block">Update User</button>
+  </form>
+</div>
